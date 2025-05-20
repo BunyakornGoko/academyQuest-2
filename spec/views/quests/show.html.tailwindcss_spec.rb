@@ -10,7 +10,7 @@ RSpec.describe "quests/show", type: :view do
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to match(/Name/)
-    expect(rendered).to match(/false/)
+    assert_select "h1.font-bold", text: "Name"
+    assert_select "span.bg-yellow-100", text: "In Progress"
   end
 end

@@ -11,5 +11,8 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe QuestsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # Since the helper is empty, we'll just test that it exists
+  it "is defined as a module" do
+    expect(defined?(QuestsHelper)).to eq("constant")
+  end
 end

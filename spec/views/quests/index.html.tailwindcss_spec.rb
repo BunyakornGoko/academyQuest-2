@@ -16,8 +16,9 @@ RSpec.describe "quests/index", type: :view do
 
   it "renders a list of quests" do
     render
-    cell_selector = 'div>p'
-    assert_select cell_selector, text: Regexp.new("Name".to_s), count: 2
-    assert_select cell_selector, text: Regexp.new(false.to_s), count: 2
+    # Check for quest names in h2 elements
+    assert_select "h2.text-xl", text: "Name", count: 2
+    # Check for status indicators
+    assert_select "span.bg-yellow-100", text: "In Progress", count: 2
   end
 end

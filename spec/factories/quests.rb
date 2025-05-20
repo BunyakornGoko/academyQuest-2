@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :quest do
-    name { "MyString" }
-    status { false }
+    sequence(:name) { |n| "Test Quest #{n}" }
+    status { [true, false].sample }
   end
 end
