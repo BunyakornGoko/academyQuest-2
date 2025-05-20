@@ -54,6 +54,13 @@ group :development, :test do
   
   # Load environment variables from .env file
   gem "dotenv-rails"
+  
+  # RSpec for testing
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  
+  # Generate fake data for tests
+  gem "faker"
 end
 
 group :development do
@@ -65,4 +72,5 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "webdrivers"
 end
