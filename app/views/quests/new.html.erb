@@ -1,9 +1,20 @@
 <% content_for :title, "New quest" %>
 
-<div class="md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New quest</h1>
+<div class="max-w-3xl mx-auto">
+  <div class="mb-6">
+    <%= link_to quests_path, class: "flex items-center text-blue-600 hover:text-blue-800" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Back to quests
+    <% end %>
+  </div>
 
-  <%= render "form", quest: @quest %>
-
-  <%= link_to "Back to quests", quests_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+  <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+    <div class="p-6">
+      <h1 class="font-bold text-3xl text-gray-800 mb-6">Create New Quest</h1>
+      
+      <%= render "form", quest: @quest %>
+    </div>
+  </div>
 </div>

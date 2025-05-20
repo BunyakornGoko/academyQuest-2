@@ -1,27 +1,35 @@
 <%= form_with(model: quest, class: "contents") do |form| %>
   <% if quest.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
-      <h2><%= pluralize(quest.errors.count, "error") %> prohibited this quest from being saved:</h2>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-4 py-3 font-medium rounded-md mb-6">
+      <h2 class="text-lg font-semibold mb-2"><%= pluralize(quest.errors.count, "error") %> prohibited this quest from being saved:</h2>
 
-      <ul class="list-disc ml-6">
+      <ul class="list-disc ml-6 text-sm">
         <% quest.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class="mb-1"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": quest.errors[:name].none?, "border-red-400 focus:outline-red-600": quest.errors[:name].any?}] %>
+  <div class="mb-6">
+    <%= form.label :name, class: "block text-gray-700 font-medium mb-2" %>
+    <%= form.text_field :name, class: ["block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 px-4 py-2", {"border-gray-300": quest.errors[:name].none?, "border-red-300": quest.errors[:name].any?}] %>
+    <% if quest.errors[:name].any? %>
+      <p class="mt-1 text-sm text-red-500"><%= quest.errors[:name].first %></p>
+    <% end %>
   </div>
 
-  <div class="my-5 flex items-center gap-2">
-    <%= form.label :status %>
-    <%= form.checkbox :status, class: ["block shadow-sm rounded-md border order-first h-5 w-5", {"border-gray-400 focus:outline-blue-600": quest.errors[:status].none?, "border-red-400 focus:outline-red-600": quest.errors[:status].any?}] %>
+  <div class="mb-6">
+    <div class="flex items-center">
+      <%= form.check_box :status, class: ["h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500", {"border-gray-300": quest.errors[:status].none?, "border-red-300": quest.errors[:status].any?}] %>
+      <%= form.label :status, class: "ml-2 block text-gray-700 font-medium" %>
+    </div>
+    <% if quest.errors[:status].any? %>
+      <p class="mt-1 text-sm text-red-500"><%= quest.errors[:status].first %></p>
+    <% end %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  <div class="flex justify-end mt-8">
+    <%= form.submit class: "inline-flex items-center justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer transition-colors duration-200" %>
   </div>
 <% end %>
