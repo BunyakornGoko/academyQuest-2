@@ -23,7 +23,24 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+# Configure system tests
 RSpec.configure do |config|
+  # Default hostname for system tests
+  Capybara.server_port = 42424 
+  Capybara.server_host = '127.0.0.1'
+  Capybara.app_host = "http://127.0.0.1:#{Capybara.server_port}"
+
+  # Configure drivers
+  config.before(:each, type: :system) do
+    # Default to rack_test driver
+    driven_by(:rack_test)
+  end
+
+  config.before(:each, type: :system, js: true) do
+    # Use headless Chrome for JS tests
+    driven_by(:selenium_chrome_headless)
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [Rails.root.join('spec/fixtures')]
 
