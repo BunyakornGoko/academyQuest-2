@@ -17,12 +17,16 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV["DB_HOST"] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  port: <%= ENV["DB_PORT"] %>
+  database: <%= ENV["DB_NAME"] %>
 
 development:
   <<: *default
-  database: academy_quest2_development
+  database: <%= ENV["DB_NAME"] %>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -56,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: academy_quest2_test
+  database: <%= ENV["DB_NAME"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,18 +85,18 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: academy_quest2_production
-    username: academy_quest2
-    password: <%= ENV["ACADEMY_QUEST2_DATABASE_PASSWORD"] %>
+    database: <%= ENV["DB_NAME"] %>
+    username: <%= ENV["DB_USERNAME"] %>
+    password: <%= ENV["DB_PASSWORD"] %>
   cache:
     <<: *primary_production
-    database: academy_quest2_production_cache
+    database: <%= ENV["DB_NAME"] %>
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: academy_quest2_production_queue
+    database: <%= ENV["DB_NAME"] %>
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: academy_quest2_production_cable
+    database: <%= ENV["DB_NAME"] %>
     migrations_paths: db/cable_migrate
