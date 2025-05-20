@@ -1,0 +1,70 @@
+<% content_for :title, "My Brags" %>
+
+<div class="w-full">
+  <div class="flex flex-col justify-between items-start mb-8">
+    <h1 class="font-bold text-3xl text-gray-800 mb-2">My Brags</h1>
+    <p class="text-gray-600">Personal achievements and goals</p>
+  </div>
+
+  <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+    <div class="p-6">
+      <div class="flex flex-col md:flex-row justify-between">
+        <div>
+          <div class="uppercase tracking-wide text-sm text-blue-600 font-semibold">Software Engineer Intern</div>
+          <h2 class="mt-1 text-2xl font-bold text-gray-800">Bunyakorn Pornsombatpaibool</h2>
+          <p class="mt-2 text-gray-600">@ Odds</p>
+        </div>
+      </div>
+      
+      <div class="mt-8">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Goals for 2025</h3>
+        
+        <div class="space-y-5">
+          <div class="flex items-start">
+            <div class="flex-shrink-0 mt-1">
+              <svg class="h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <p class="text-gray-700">Create something that solves problems for BMA (Bangkok Vocational Training School)</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="flex-shrink-0 mt-1">
+              <svg class="h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <p class="text-gray-700">Have skills that help push myself and my teammates in the right direction for the quality of software</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="flex-shrink-0 mt-1">
+              <svg class="h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <p class="text-gray-700">Be one of the key people in Dev and help my teammates reach the shore in ODT</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="py-4 px-6 bg-gray-50 border-t border-gray-200">
+      <div class="flex items-center justify-between">
+        <div class="text-sm text-gray-500">
+          <p>Academy Quest 2023-2025</p>
+        </div>
+        <div>
+          <%= link_to "Back to Quests", quests_path, class: "text-blue-600 hover:text-blue-800 font-medium text-sm" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
