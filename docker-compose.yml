@@ -13,5 +13,13 @@ services:
     volumes:
       - academy_data:/var/lib/postgresql/data
 
+  web:
+    image: bunyakorngoko/academy1
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://academyquest_db2_user:aID8Q8o4DzLCN0Abww1buXOCI0bsaB9q@dpg-d0mramp5pdvs739ndpvg-a.singapore-postgres.render.com/academyquest_db2
+      SECRET_KEY_BASE: vujlA90rlA7Rin+iOh8vzYH+IkpbCMtjaquQ+hsmD8uXH9mP8BKg9pOSOcZyCo5Ls20aLjUaDSK5/w8kiPbP8jKyrz8jbQxgM/lgRtqqE9NKXH4crnQPRwQm+WxtNzIQt2tgGMGfeHYO7bvDaBvfMOTJ5sxtHcYy8wcgapf/tXtt81Gt4TtW+HMn/mnoPCpOvsBu8BjKJoMqp675UBftI0l3PXL2dfV0k5D0T1W+5qZ7cOR8rvWLtDYIIgtMVTZpcsQpGcmE5jCxeNC6Ty1875vIByN5dT/PxS2uR/E/44ziOzQ3C2LcaOk2t//Y1PqCH+k56D7CCP6o5shDRJrLWyPYvEIu5kjvqWlDayqObPl50IYy/PP9giQPWvrsXXwBuSsCeOMKsxjH6jgBN2mD2qNHfn/JEpqwcLxGQMDVHZMO6OQMKRpR+HopUSVgDsnW+qTYBmTtkJNPc5VjjA62hznmu7fZpE2LdfhqAxcogPZCywKODwvuHWpt--wBkbD1iNbDcRyOIe--lHivubI/9xlBayfilJCvPw==
+
 volumes:
   academy_data:

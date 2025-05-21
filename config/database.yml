@@ -18,16 +18,16 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV["DB_HOST"] %>
-  username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
-  port: <%= ENV["DB_PORT"] %>
-  database: <%= ENV["DB_NAME"] %>
+  # host: <%= ENV["DB_HOST"] %>
+  # username: <%= ENV["DB_USERNAME"] %>
+  # password: <%= ENV["DB_PASSWORD"] %>
+  # port: <%= ENV["DB_PORT"] %>
+  # database: <%= ENV["DB_NAME"] %>
+  url: <%= ENV["DATABASE_URL"] %>
 
 development:
   <<: *default
   database: <%= ENV["DB_NAME"] %>
-
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: <%= ENV["DB_NAME"] %>
+  # database: <%= ENV["DB_NAME"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -85,18 +85,22 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: <%= ENV["DB_NAME"] %>
-    username: <%= ENV["DB_USERNAME"] %>
-    password: <%= ENV["DB_PASSWORD"] %>
+    # database: <%= ENV["DB_NAME"] %>
+    # username: <%= ENV["DB_USERNAME"] %>
+    # password: <%= ENV["DB_PASSWORD"] %>
+    url: <%= ENV["DATABASE_URL"] %>
   cache:
     <<: *primary_production
-    database: <%= ENV["DB_NAME"] %>
+    # database: <%= ENV["DB_NAME"] %>
+    url: <%= ENV["DATABASE_URL"] %>
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: <%= ENV["DB_NAME"] %>
+    # database: <%= ENV["DB_NAME"] %>
+    url: <%= ENV["DATABASE_URL"] %>
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: <%= ENV["DB_NAME"] %>
+    # database: <%= ENV["DB_NAME"] %>
+    url: <%= ENV["DATABASE_URL"] %>
     migrations_paths: db/cable_migrate
